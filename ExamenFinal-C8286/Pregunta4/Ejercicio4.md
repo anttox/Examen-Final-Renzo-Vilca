@@ -127,6 +127,44 @@
 
 # PARTE2
 
+**1. Consistencia (C):**
+
+La consistencia se gestiona mediante el algoritmo de consenso Raft. Este algoritmo asegura que todos los nodos en la red acuerden el mismo estado de los datos.
+
+- Elección de Líder: Los nodos participan en elecciones para elegir un líder. El líder es responsable de replicar entradas de log a otros nodos y asegurar la consistencia.
+
+![imagen](https://github.com/user-attachments/assets/13dc3f4b-0872-4dba-91e5-873b99377708)
+
+- Replicación de Entradas de Log: El líder envía mensajes de latido (heartbeats) periódicamente para mantener la consistencia y replicar entradas de log a otros nodos.
+
+![imagen](https://github.com/user-attachments/assets/584ecd59-cdb4-4534-a115-113c7b82869e)
+
+**2. Disponibilidad (A):**
+
+La disponibilidad se asegura manteniendo los nodos en ejecución y respondiendo a las solicitudes incluso si algunos nodos fallan.
+
+- Nodo en Ejecución: Cada nodo tiene un bucle de ejecución en el método run que lo mantiene activo y participando en el consenso y otras operaciones.
+
+![imagen](https://github.com/user-attachments/assets/79c71595-b609-40dc-9f1b-07a39e6c2c3a)
+
+- Manejo de Fallos Aleatorios: Los nodos pueden experimentar fallos aleatorios y recuperarse. Esto se simula en el código ajustando la probabilidad de que un nodo se convierta en candidato.
+
+![imagen](https://github.com/user-attachments/assets/506d0b4e-a6b2-44e8-9991-c59d61aa3479)
+
+**3. Tolerancia a Particiones (P):**
+
+La tolerancia a particiones se simula permitiendo que los nodos continúen operando y participando en elecciones incluso si algunos nodos no están disponibles debido a fallos de red.
+
+- Simulación de Latencia de Red: La latencia de red se simula añadiendo retrasos aleatorios en la comunicación entre nodos.
+
+![imagen](https://github.com/user-attachments/assets/e08808bb-781e-419a-a5ca-a427ca7866e4)
+
+- Manejo de Fallos en Nodos: Los nodos pueden dejar de participar en la red debido a fallos simulados. Esto se maneja mediante el método stop.
+
+![imagen](https://github.com/user-attachments/assets/492c3288-8861-4ceb-96b1-173745240572)
+
+# PARTE3
+
 **Salida:**
 
 - Inicio:
